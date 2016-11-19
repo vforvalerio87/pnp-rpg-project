@@ -8,20 +8,26 @@
   </head>
   <body> 
     <div id="content"></div>
-    <script src="showdown_1_4_4.min.js"></script>
+    <script src="vendor/showdown_1_4_4.min.js"></script>
     <script> 
       var content = document.getElementById("content");
       var markdown = new showdown.Converter({noHeaderId: true, tables: true});
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", "content.md");
-      xhr.overrideMimeType("text/plain");
-      xhr.onload = function(e) {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          var input = xhr.response;
-          content.innerHTML = markdown.makeHtml(input); 
+      setInterval(loadContent, 1000);
+
+      function loadContent() {
+        xhr.open("GET", "content.md");
+        xhr.overrideMimeType("text/plain");
+        xhr.onload = function(e) {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var input = xhr.response;
+            content.innerHTML = markdown.makeHtml(input); 
+          }
         }
+        xhr.send();
       }
-      xhr.send();
+
+      loadContent();
     </script>
   </body>
 </html>
