@@ -73,9 +73,12 @@ Esempio: per determinare se una ferita porti o meno all'incapacitamento di un so
 
 Un giocatore non può invocare il fato contro un altro giocatore. Un giocatore non può appellarsi al fato su un test se un altro giocatore l'ha già fatto.
 
-##Tratti?
-Caratteristiche del personaggio. Per esempio il mestiere che svolge o i tipi di ambiente che frequenta o le cose che lo spaventano. Li vogliamo? Come si gestiscono? Costo in punti (tipo vantaggi/svantaggi di GURPS) o ne prendi un determinato numero alla creazione e stop? Li scelgono i giocatori liberamente (contro: sindrome da colloquio. Esempio: "il mio difetto è che sono preciso nelle cose") o c'è una lista base da cui attingere? O li sceglie il master?
->IPOTESI: facciamo una roba tipo la selezione delle squadre di calcetto. All'inizio di ogni campagna il master determina casualmente una serie di tratti (li pesca dal ciclindro, tira dei dadi... come preferite); a quel punto i giocatori a turno se li spartiscono finché non terminano. 
+##Tratti \**altamente work in progress*\*
+*Nota: credo introdurrò un sistema per specificare quanto un paragrafo o una sezione siano consolidate o sperimentali.*
+Caratteristiche del personaggio. Per esempio il mestiere che svolge o i tipi di ambiente che frequenta o le cose che lo spaventano.
+>IPOTESI: facciamo una roba tipo la selezione delle squadre di calcetto. All'inizio di ogni campagna il master determina casualmente una serie di tratti (li pesca dal ciclindro, tira dei dadi... come preferite); a quel punto i giocatori a turno se li spartiscono finché non terminano.
+
+I tratti sono in un "mazzo" proprio della campagna/avventura/ambientazione; se ne pescano x per giocatore da un mazzo. 
 
 ##Combattimento
 
