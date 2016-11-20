@@ -11,9 +11,7 @@ Lo scopo di questo documento è quello di delineare le basi per un sistema di gi
 * Consentire ai giocatori di creare velocemente personaggi giocabili
 * Consentire di simulare combattimenti senza mappe, miniature o righelli: il combattimento deve potersi svolgere solo coi dadi e la narrazione
 
-Questo documento non è una bozza di manuale del giocatore: è per me ed altri eventuali addetti ai lavori che dovessero trovarsi a collaborare al progetto. È una versione del sistema di gioco spiegata e commentata, nei suoi principi e nei suoi obiettivi, in modo da poterla espandere, definire e formalizzare.
-
-Per il momento l'idea è quella di rilasciare il sistema di gioco **open source** con licenza **GPLv3**. Allo stato attuale si può considerare non coperto da alcuna licenza, né un sistema vero e proprio; sono solo appunti.
+>Questo documento non è una bozza di manuale del giocatore: è per me ed altri eventuali addetti ai lavori che dovessero trovarsi a collaborare al progetto. È una versione del sistema di gioco spiegata e commentata, nei suoi principi e nei suoi obiettivi, in modo da poterla espandere, definire e formalizzare.
 
 ###Guida di stile
 Queste sono indicazioni che utilizzerò per la progettazione di questo sistema di gioco:
@@ -21,8 +19,6 @@ Queste sono indicazioni che utilizzerò per la progettazione di questo sistema d
 * Tenere gli elementi generici, veramente utili a qualsiasi avventura o campagna, all'interno delle regole base; tutto il resto deve essere in documenti di ambientazione o di avventura. Per un principio di specificità, eventuali regole indicate in un manuale dell'ambientazione hanno la precedenza su quelle generiche; sopra a tutto vale la decisione del master.
 * Se una meccanica è troppo articolata, semplificarla o rimuoverla e concentrarsi sulla sua componente narrativa. Esempio: non è importante definire secondo quali fattispecie e in quanto tempo da una declinazione dello stato di *gravemente ferito* un personaggio passi allo stato di *morto* se nessuno interviene; è una decisione che è meglio lasciare al master
 * Evitare pagine di armi qualitativamente simili, diverse solo per valori numerici: poche armi generiche con caratteristiche differenti prima di tutto sul piano qualitativo. Sono spesso elementi fortemente distintivi di una ambientazione e di un personaggio
-* Tutti i tiri sono scoperti, sia quelli dei giocatori che quelli del master
-* Per la maggior parte dei tiri il master può decidere arbitrariamente invece di ricorrere ai dadi; è suggerito all'interno del manuale quando questo potrebbe essere particolarmente opportuno. Fanno eccezione i confronti tra due giocatori nei quali il master dovrebbe cercare di non intromettersi per avvantaggiare uno o l'altro
 
 ##Appunti
 Questi sono alcuni appunti sulle meccaniche, scritti man mano che mi vengono in mente, da ordinare
@@ -34,24 +30,43 @@ Cosa deve esserci nel sistema:
 * Valutare se tenere vantaggi o svantaggi - separare elementi legati a meccaniche da elementi legati a caratterizzazione
 * Niente successi e fallimenti critici
 
+###Abilità
+>Le abilità vanno da 0 a 3.
+
+A seconda dell'ambientazione, ogni abilità può richiedere delle specializzazioni. Per esempio, in una ambientazione in cui siano presenti e fortemente utilizzati da gruppi differenti sia archi che fucili, l'abilità *combattimento a distanza* potrebbe riferirsi solo ad una di queste tipologie di armi. Per comodità diverse specializzazioni della stessa abilità hanno un livello pari al livello di abilità -1, a meno che il materiale specifico dell'ambientazione non specifichi altro o il master non decida diversamente.
+
+>Ogni campagna prevede un livello di potere: il livello di potere determina quante abilità a livello 3, quante a livello 2 e quante a livello 1 ogni personaggio debba avere al momento della creazione.
+
 ###Test
+Si intende per test qualsiasi cosa debba essere risolta con un tiro di dado. I test possono essere contro livelli di difficoltà fissi o confronti tra tiri.
+
 * Tiri contro livelli di difficoltà
 * Confronti diretti (tiro contro tiro)
-* Dadi? Ipotesi: dadi da 10; i tiri sono d10 + punteggio nell'abilità rilevante
+* Si risolve tutto tirando sempre e solo un dado da 6
 * Il master può applicare bonus e malus a tiri o confronti; esempio, può decidere di dare ad un nano un malus in un confronto diretto per stabilire chi vinca una corsa a piedi, o un bonus in una gara di bevute. È consigliabile appuntarsi quando si decide in questo senso per mantenere una coerenza interna durante l'avventura
+
+Ogni confronto si basa su un'eventuale abilità, eventuali bonus e malus circostanziali e un eventuale tiro di dado.
+
+I confronti vengono risolti in questo modo:
+* Per ogni test, per ogni soggetto coinvolto, si battezza una abilità rilevante, a meno che il test non sia completamente dipendente dal caso. Per i confronti che non comportino uno scontro diretto tra due soggetti, il master battezza un livello di difficoltà arbitrariamente, o lo determina con l'aiuto delle regole (ad esempio, il manuale specifica i bonus e i malus circostanziali per un tiro vicino o lontano, o per un tiro contro un soggetto in copertura). Esempio, una sfida a braccio di ferro è un confronto diretto; sparare a un bersaglio è un confronto contro un livello di difficoltà
+* Per ogni test, per ogni soggetto coinvolto, si individuano eventuali bonus o malus circostanziali. Esempio, un soggetto avvelenato o stanco potrebbe avere un malus circostanziale in un confronto di lotta contro un altro soggetto
+* Per ogni test, ogni soggetto coinvolto tira un dado, se appropriato. Con un risultato di 1 o 2 il punteggio del soggetto nel confronto subisce un ulteriore -1 circostanziale; con un risultato di 3 o 4 il punteggio del soggetto nel confronto rimane invariato; con un punteggio di 5 o 6, il punteggio del soggetto nel confronto guadagna un ulteriore +1 circostanziale
+
+>Tutti i tiri sono scoperti, sia quelli dei giocatori che quelli del master. Per la maggior parte dei test, invece che tirare un dado, il master può scegliere di prendere una decisione arbitraria. In questo caso, il master deve dichiarare la sua volontà prima che il dado sia tirato; di conseguenza, il tiro non avviene.
+
+È suggerito all'interno del manuale quando questo potrebbe essere particolarmente opportuno. Fanno eccezione i confronti tra due giocatori nei quali il master dovrebbe cercare di non intromettersi per avvantaggiare uno o l'altro.
 
 ###Fato
 Una volta per sessione ciascun giocatore può appellarsi al fato per ottenere uno dei due seguenti effetti:
 * Decidere il risultato di un tiro di dado prima che questo venga tirato
-* Prendere una decisione al posto del master o rettificare una sua decisione appena presa
+* Se per un test il master decide di prendere una decisione arbitraria invece che tirare un dado, il giocatore può scavalcare la decisione del master e decidere arbitrariamente al suo posto
 
-Esempio: per determinare se una ferita porti o meno all'incapacitamento di un soggetto è possibile tirare un dado, oppure il master può decidere in maniera arbitraria. Appellandosi al fato un giocatore può decidere che un personaggio sia per forza di cose incapacitato, oppure che non lo sia, anche se il master ha appena deciso in senso contrario. Qualsiasi giocatore può appellarsi al fato anche se il suo personaggio è ferito, privo di sensi o morto.
+Esempio: per determinare se una ferita porti o meno all'incapacitamento di un soggetto è possibile tirare un dado, oppure il master può decidere in maniera arbitraria. Appellandosi al fato un giocatore può decidere che un personaggio sia per forza di cose incapacitato, oppure che non lo sia, anche se il master ha appena deciso in senso contrario.
 
-Un giocatore non può invocare il fato contro un altro giocatore.
+>Qualsiasi giocatore può appellarsi al fato anche se il suo personaggio è ferito, privo di sensi o morto.
 
-###Abilità
-Le abilità vanno da 0 a 10?
-A seconda dell'ambientazione, ogni abilità può richiedere delle specializzazioni. Per esempio, in una ambientazione in cui siano presenti e fortemente utilizzati da gruppi differenti sia archi che fucili, l'abilità *combattimento a distanza* potrebbe riferirsi solo ad una di queste tipologie di armi. Per comodità diverse specializzazioni della stessa abilità hanno un livello pari al livello di abilità -1 fino a livello 6, -2 da livello 6 in su, a meno che il materiale specifico dell'ambientazione non specifichi altro o il master non decida diversamente.
+Un giocatore non può invocare il fato contro un altro giocatore. Un giocatore non può appellarsi al fato su un test se un altro giocatore l'ha già fatto.
+
 
 ####Sotterfugio
 Esempio: borseggiare, scassinare, hackerare sistemi di sicurezza o falsificare documenti.
@@ -109,9 +124,7 @@ In ciascuno di questi tre casi, sia per i giocatori che per i personaggi non gio
 
 Le indicazioni sulla durata delle azioni sono generiche e indicative; possono cambiare da tipologia di arma a tipologia di arma. Per esempio con un arco ogni tipo di attacco può essere un'azione lunga; con una balestra può esserlo ricaricare.
 
-##Provvisori
-
-Abilità da 0 a 3. Si tira il dado da 6. Prima di ogni test il master decide la difficoltà; nei confronti la difficoltà è data dall'altro. Con 1-2 il personaggio sottrae 1 alla sua abilità; con 5 o 6 somma 1.
+##Idee da integrare
 
 Ferite: una volta colpito si viene feriti con 4, 5 o 6
 
