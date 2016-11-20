@@ -20,9 +20,6 @@ Queste sono indicazioni che utilizzerò per la progettazione di questo sistema d
 * Se una meccanica è troppo articolata, semplificarla o rimuoverla e concentrarsi sulla sua componente narrativa. Esempio: non è importante definire secondo quali fattispecie e in quanto tempo da una declinazione dello stato di *gravemente ferito* un personaggio passi allo stato di *morto* se nessuno interviene; è una decisione che è meglio lasciare al master
 * Evitare pagine di armi qualitativamente simili, diverse solo per valori numerici: poche armi generiche con caratteristiche differenti prima di tutto sul piano qualitativo. Sono spesso elementi fortemente distintivi di una ambientazione e di un personaggio
 
-##Appunti
-Questi sono alcuni appunti sulle meccaniche, scritti man mano che mi vengono in mente, da ordinare
-
 ###Elementi minimi
 Cosa deve esserci nel sistema:
 * Abilità - generiche. Esigenze di caratterizzazione non devono essere penalizzate e produrre personaggi monodimensionali
@@ -30,18 +27,27 @@ Cosa deve esserci nel sistema:
 * Valutare se tenere vantaggi o svantaggi - separare elementi legati a meccaniche da elementi legati a caratterizzazione
 * Niente successi e fallimenti critici
 
-###Abilità
+##Abilità
 >Le abilità vanno da 0 a 3.
 
 A seconda dell'ambientazione, ogni abilità può richiedere delle specializzazioni. Per esempio, in una ambientazione in cui siano presenti e fortemente utilizzati da gruppi differenti sia archi che fucili, l'abilità *combattimento a distanza* potrebbe riferirsi solo ad una di queste tipologie di armi. Per comodità diverse specializzazioni della stessa abilità hanno un livello pari al livello di abilità -1, a meno che il materiale specifico dell'ambientazione non specifichi altro o il master non decida diversamente.
 
 >Ogni campagna prevede un livello di potere: il livello di potere determina quante abilità a livello 3, quante a livello 2 e quante a livello 1 ogni personaggio debba avere al momento della creazione.
 
-###Test
+###Esempi di abilità
+
+####Sotterfugio
+Esempio: borseggiare, scassinare, hackerare sistemi di sicurezza o falsificare documenti.
+
+####Combattimento a distanza
+Esempio: tirare con l'arco o sparare con la pistola.
+
+####Combattimento corpo a corpo
+Esempio: combattimento a mani nude o con arma bianca.
+
+##Test
 Si intende per test qualsiasi cosa debba essere risolta con un tiro di dado. I test possono essere contro livelli di difficoltà fissi o confronti tra tiri.
 
-* Tiri contro livelli di difficoltà
-* Confronti diretti (tiro contro tiro)
 * Si risolve tutto tirando sempre e solo un dado da 6
 * Il master può applicare bonus e malus a tiri o confronti; esempio, può decidere di dare ad un nano un malus in un confronto diretto per stabilire chi vinca una corsa a piedi, o un bonus in una gara di bevute. È consigliabile appuntarsi quando si decide in questo senso per mantenere una coerenza interna durante l'avventura
 
@@ -56,7 +62,7 @@ I confronti vengono risolti in questo modo:
 
 È suggerito all'interno del manuale quando questo potrebbe essere particolarmente opportuno. Fanno eccezione i confronti tra due giocatori nei quali il master dovrebbe cercare di non intromettersi per avvantaggiare uno o l'altro.
 
-###Fato
+##Fato
 Una volta per sessione ciascun giocatore può appellarsi al fato per ottenere uno dei due seguenti effetti:
 * Decidere il risultato di un tiro di dado prima che questo venga tirato
 * Se per un test il master decide di prendere una decisione arbitraria invece che tirare un dado, il giocatore può scavalcare la decisione del master e decidere arbitrariamente al suo posto
@@ -67,17 +73,7 @@ Esempio: per determinare se una ferita porti o meno all'incapacitamento di un so
 
 Un giocatore non può invocare il fato contro un altro giocatore. Un giocatore non può appellarsi al fato su un test se un altro giocatore l'ha già fatto.
 
-
-####Sotterfugio
-Esempio: borseggiare, scassinare, hackerare sistemi di sicurezza o falsificare documenti.
-
-####Combattimento a distanza
-Esempio: tirare con l'arco o sparare con la pistola.
-
-####Combattimento corpo a corpo
-Esempio: combattimento a mani nude o con arma bianca.
-
-###Tratti?
+##Tratti?
 Caratteristiche del personaggio. Per esempio il mestiere che svolge o i tipi di ambiente che frequenta o le cose che lo spaventano. Li vogliamo? Come si gestiscono? Costo in punti (tipo vantaggi/svantaggi di GURPS) o ne prendi un determinato numero alla creazione e stop? Li scelgono i giocatori liberamente (contro: sindrome da colloquio. Esempio: "il mio difetto è che sono preciso nelle cose") o c'è una lista base da cui attingere? O li sceglie il master?
 >IPOTESI: facciamo una roba tipo la selezione delle squadre di calcetto. All'inizio di ogni campagna il master determina casualmente una serie di tratti (li pesca dal ciclindro, tira dei dadi... come preferite); a quel punto i giocatori a turno se li spartiscono finché non terminano. 
 
@@ -124,7 +120,7 @@ In ciascuno di questi tre casi, sia per i giocatori che per i personaggi non gio
 
 Le indicazioni sulla durata delle azioni sono generiche e indicative; possono cambiare da tipologia di arma a tipologia di arma. Per esempio con un arco ogni tipo di attacco può essere un'azione lunga; con una balestra può esserlo ricaricare.
 
-##Idee da integrare
+##Idee da integrare e appunti sparsi
 
 Ferite: una volta colpito si viene feriti con 4, 5 o 6
 
