@@ -40,6 +40,7 @@
         var configObject = localStorage.getItem('configObject');
 
         configure = function (akid, sak, bucket, awsregion) {
+          if (!akid || !sak || !bucket || !awsregion) return console.log("Devi inserire tutti i parametri (akid, sak, bucket, awsregion)!");
           s3bucket = bucket;
           configObject = JSON.stringify({
             accessKeyId: akid,
