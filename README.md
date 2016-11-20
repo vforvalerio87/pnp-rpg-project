@@ -5,9 +5,9 @@ Per visualizzare il documento è sufficiente aprire il file **index.html** con q
 
 Per modificare il documento è sufficiente modificare il file **content.md**.
 
-Il documento index.html, attraverso uno script, ricarica dinamicamente il contenuto del file content.md e lo inietta all'interno dell'elemento **<div id="content">** a intervalli di 1 secondo.
+Il documento index.html, attraverso uno script, ricarica dinamicamente il contenuto del file content.md e lo inietta all'interno dell'elemento `<div id="content">` a intervalli di 1 secondo.
 
-È possibile caricare il contenuto del documento renderizzato, privo dei tag **<script>**, all'interno di un bucket S3.
+È possibile caricare il contenuto del documento renderizzato, privo dei tag `<script>`, all'interno di un bucket S3.
 A questo proposito, il documento espone delle funzioni che possono essere chiamate direttamente dalla console del browser. Queste funzioni sono:
 
 `configure(accessKeyId, secretAccessKey, bucket, region)`
