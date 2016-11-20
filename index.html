@@ -31,16 +31,12 @@
     <script class="dev">
       var s3bucket = localStorage.getItem('s3bucket') || null;
       var configObject = localStorage.getItem('configObject') || null; 
-
-      var assignVariables = function () {
-        s3bucket = localStorage.getItem('s3bucket');
-        configObject = localStorage.getItem('configObject');
-      }
-      
+ 
       var configure = function(akid, sak, bucket, awsregion) { 
         localStorage.setItem('configObject', JSON.stringify({accessKeyId: akid, secretAccessKey: sak, region: awsregion}));
         localStorage.setItem('s3bucket', bucket);
-        assignVariables();
+        s3bucket = localStorage.getItem('s3bucket');
+        configObject = localStorage.getItem('configObject'); 
       };
  
       var deploy = function() { 
