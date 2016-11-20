@@ -8,26 +8,44 @@
   </head>
   <body> 
     <div id="content"></div>
-    <script src="vendor/showdown_1_4_4.min.js"></script>
-    <script> 
+    <script src="vendor/showdown_1_4_4.min.js" class="dev"></script>
+    <script src="vendor/aws-sdk-2.7.5.min.js" class="dev"></script>
+    <script class ="dev"> 
       var content = document.getElementById("content");
       var markdown = new showdown.Converter({noHeaderId: true, tables: true});
       var xhr = new XMLHttpRequest();
-      setInterval(loadContent, 1000);
 
-      function loadContent() {
+      (function loadContent() {
         xhr.open("GET", "content.md");
         xhr.overrideMimeType("text/plain");
         xhr.onload = function(e) {
           if (xhr.readyState === 4 && xhr.status === 200) {
             var input = xhr.response;
             content.innerHTML = markdown.makeHtml(input); 
+            setTimeout(loadContent, 1000);
           }
         }
         xhr.send();
-      }
+      })();
+    </script>
+    <script class="dev">
+      var compileDocument = function() {
+        var compiledDocument = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+        document.querySelectorAll('.dev').forEach(function(element) {
+          compiledDocument = compiledDocument.replace(element.outerHTML, ''); 
+        });
+        return compiledDocument;
+      } 
 
-      loadContent();
+      var config;
+      var s3;
+      var params;
+
+      var configure = function(accessKeyId, secretAccessKey, region, bucket) {
+        config = new AWS.Config({accessKeyId: accessKeyId, secretAccessKey: secretAccessKey, region: region});
+        s3 = new AWS.S3(config);
+        params = { Bucket: bucket };
+      }
     </script>
   </body>
 </html>
