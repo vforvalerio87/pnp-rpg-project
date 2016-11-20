@@ -15,6 +15,7 @@ configure(accessKeyId, secretAccessKey, bucket, region)
 ```
 Consente di impostare l'ambiente di lavoro configurando le credenziali di IAM di AWS, il nome del bucket all'interno del quale caricare il documento e la region in cui questo bucket risiede.
 
+
 ```javascript
 deploy()
 ```
