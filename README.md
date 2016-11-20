@@ -15,10 +15,9 @@ configure(accessKeyId, secretAccessKey, bucket, region)
 ```
 Consente di impostare l'ambiente di lavoro configurando le credenziali di IAM di AWS, il nome del bucket all'interno del quale caricare il documento e la region in cui questo bucket risiede.
 
-
 ```javascript
 deploy()
 ```
-Carica il documento col nome di **index.html** con accesso pubblico in lettura e ContentType="text/html; charset=UTF-8" alla radice del bucket specificato con la funzione *configure*; vengono rimossi dal documento caricato i tag con class="dev".
+Carica il documento col nome di **index.html** con accesso pubblico in lettura e `ContentType="text/html; charset=UTF-8"` alla radice del bucket specificato con la funzione `configure`; vengono rimossi dal documento caricato i tag con `class="dev"`.
 
-Per caricare il documento è necessario che l'utente le cui credenziali vengono specificate in *configure* abbia i permessi per l'action *s3:PutObject* sul bucket di destinazione e che sul bucket sia correttamente configurato il CORS.
+Per caricare il documento è necessario che l'utente le cui credenziali vengono specificate in `configure(accessKeyId, secretAccessKey, bucket, region)` abbia i permessi per l'action `s3:PutObject` sul bucket di destinazione e che sul bucket sia correttamente configurato il CORS.
