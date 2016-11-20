@@ -10,61 +10,79 @@
     <div id="content"></div>
     <script src="vendor/showdown-1.4.4.min.js" class="dev"></script> 
     <script src="vendor/aws-sdk-2.7.5.min.js" class="dev"></script>
-    <script class ="dev"> 
-      var content = document.getElementById("content");
-      var markdown = new showdown.Converter({noHeaderId: true, tables: true});
-      var xhr = new XMLHttpRequest();
+    <script class ="dev">
+      'use strict';
 
-      (function loadContent() {
-        xhr.open("GET", "content.md");
-        xhr.overrideMimeType("text/plain");
-        xhr.onload = function(e) {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var input = xhr.response;
-            content.innerHTML = markdown.makeHtml(input); 
-            setTimeout(loadContent, 1000);
-          }
+      var configure;
+      var deploy;
+
+      +function() {
+        var content = document.getElementById("content");
+        var markdown = new showdown.Converter({noHeaderId: true, tables: true});
+        var xhr = new XMLHttpRequest();
+
+        +function loadContent() {
+          xhr.open("GET", "content.md");
+          xhr.overrideMimeType("text/plain");
+          xhr.onload = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              var input = xhr.response;
+              content.innerHTML = markdown.makeHtml(input);
+              setTimeout(loadContent, 1000);
+            }
+          };
+          xhr.send();
+        }();
+      }();
+
+      +function() {
+        var s3bucket = localStorage.getItem('s3bucket');
+        var configObject = localStorage.getItem('configObject');
+
+        configure = function (akid, sak, bucket, awsregion) {
+          s3bucket = bucket;
+          configObject = JSON.stringify({
+            accessKeyId: akid,
+            secretAccessKey: sak,
+            region: awsregion
+          });
+
+          localStorage.setItem('configObject', configObject);
+          localStorage.setItem('s3bucket', s3bucket);
+
+          return 'configurazione eseguita con successo.';
+        };
+
+        deploy = function () {
+          if (!configObject) return console.log('Eseguire prima il comando configure(akid, sak, bucket, awsregion)');
+
+          var config = new AWS.Config(JSON.parse(configObject));
+          var s3 = new AWS.S3(config);
+
+          var compileDocument = function () {
+            var compiledDocument = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+            var devNodes = document.querySelectorAll('.dev');
+
+            var l = devNodes.length;
+            for (var i = 0; i < l; i++) compiledDocument = compiledDocument.replace(devNodes[i].outerHTML, '');
+
+            return compiledDocument;
+          };
+
+          var params = {
+            Bucket: s3bucket,
+            Key: 'index.html',
+            ACL: 'public-read',
+            Body: compileDocument(),
+            ContentType: 'text/html; charset=UTF-8'
+          };
+
+          s3.putObject(params, function (err) {
+            if (err) return console.log(err, err.stack);
+            console.log('Deployment avvenuto con successo!');
+          });
         }
-        xhr.send();
-      })();
-    </script>
-    <script class="dev">
-      var s3bucket = localStorage.getItem('s3bucket') || null;
-      var configObject = localStorage.getItem('configObject') || null; 
- 
-      var configure = function(akid, sak, bucket, awsregion) { 
-        localStorage.setItem('configObject', JSON.stringify({accessKeyId: akid, secretAccessKey: sak, region: awsregion}));
-        localStorage.setItem('s3bucket', bucket);
-        s3bucket = localStorage.getItem('s3bucket');
-        configObject = localStorage.getItem('configObject'); 
-      };
- 
-      var deploy = function() { 
-        config = new AWS.Config(JSON.parse(configObject));
-        s3 = new AWS.S3(config);
-
-        var compileDocument = function() {
-          var compiledDocument = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-          var devNodes = document.querySelectorAll('.dev'), i;
-          for (i = 0; i < devNodes.length; i++) {
-            compiledDocument = compiledDocument.replace(devNodes[i].outerHTML, '');
-          }
-          return compiledDocument;
-        }
-
-        var params = {
-          Bucket: s3bucket,
-          Key: 'index.html',
-          ACL: 'public-read',
-          Body: compileDocument(),
-          ContentType: 'text/html; charset=UTF-8'
-        }
-
-        s3.putObject(params, function(err, data) {
-          if (err)  console.log(err, err.stack);
-          else      console.log('Deployment avvenuto con successo!');
-        });
-      }
+      }();
     </script>
   </body>
 </html>
