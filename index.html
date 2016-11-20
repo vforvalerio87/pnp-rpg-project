@@ -45,11 +45,12 @@
 
         var compileDocument = function() {
           var compiledDocument = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-          document.querySelectorAll('.dev').forEach(function(element) {
-            compiledDocument = compiledDocument.replace(element.outerHTML, ''); 
-          });
+          var devNodes = document.querySelectorAll('.dev'), i;
+          for (i = 0; i < devNodes.length; i++) {
+            compiledDocument = compiledDocument.replace(devNodes[i].outerHTML, '');
+          }
           return compiledDocument;
-        } 
+        }
 
         var params = {
           Bucket: s3bucket,
