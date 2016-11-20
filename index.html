@@ -29,25 +29,26 @@
       })();
     </script>
     <script class="dev">
-      var compileDocument = function() {
-        var compiledDocument = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-        document.querySelectorAll('.dev').forEach(function(element) {
-          compiledDocument = compiledDocument.replace(element.outerHTML, ''); 
-        });
-        return compiledDocument;
-      } 
-
       var config;
       var s3;
       var s3bucket;
 
-      var configure = function(accessKeyId, secretAccessKey, region, bucket) {
+      var configure = function(accessKeyId, secretAccessKey, bucket, region) {
         config = new AWS.Config({accessKeyId: accessKeyId, secretAccessKey: secretAccessKey, region: region});
         s3 = new AWS.S3(config);
         s3bucket = bucket;
       }
 
       var deploy = function() {
+
+        var compileDocument = function() {
+          var compiledDocument = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+          document.querySelectorAll('.dev').forEach(function(element) {
+            compiledDocument = compiledDocument.replace(element.outerHTML, ''); 
+          });
+          return compiledDocument;
+        } 
+
         var params = {
           Bucket: s3bucket,
           Key: 'index.html',
@@ -55,6 +56,7 @@
           Body: compileDocument(),
           ContentType: 'text/html; charset=UTF-8'
         }
+
         s3.putObject(params, function(err, data) {
           if (err)  console.log(err, err.stack);
           else      console.log('Deployment avvenuto con successo!');
