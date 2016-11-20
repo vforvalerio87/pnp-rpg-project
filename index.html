@@ -39,12 +39,26 @@
 
       var config;
       var s3;
-      var params;
+      var s3bucket;
 
       var configure = function(accessKeyId, secretAccessKey, region, bucket) {
         config = new AWS.Config({accessKeyId: accessKeyId, secretAccessKey: secretAccessKey, region: region});
         s3 = new AWS.S3(config);
-        params = { Bucket: bucket };
+        s3bucket = bucket;
+      }
+
+      var deploy = function() {
+        var params = {
+          Bucket: s3bucket,
+          Key: 'index.html',
+          ACL: 'public-read',
+          Body: compileDocument(),
+          ContentType: 'text/html; charset=UTF-8'
+        }
+        s3.putObject(params, function(err, data) {
+          if (err)  console.log(err, err.stack);
+          else      console.log('Deployment avvenuto con successo!');
+        });
       }
     </script>
   </body>
