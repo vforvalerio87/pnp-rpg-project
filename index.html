@@ -29,17 +29,23 @@
       })();
     </script>
     <script class="dev">
-      var config;
-      var s3;
-      var s3bucket;
+      var s3bucket = localStorage.getItem('s3bucket') || null;
+      var configObject = localStorage.getItem('configObject') || null; 
 
-      var configure = function(accessKeyId, secretAccessKey, bucket, region) {
-        config = new AWS.Config({accessKeyId: accessKeyId, secretAccessKey: secretAccessKey, region: region});
-        s3 = new AWS.S3(config);
-        s3bucket = bucket;
+      var assignVariables = function () {
+        s3bucket = localStorage.getItem('s3bucket');
+        configObject = localStorage.getItem('configObject');
       }
-
-      var deploy = function() {
+      
+      var configure = function(akid, sak, bucket, awsregion) { 
+        localStorage.setItem('configObject', JSON.stringify({accessKeyId: akid, secretAccessKey: sak, region: awsregion}));
+        localStorage.setItem('s3bucket', bucket);
+        assignVariables();
+      };
+ 
+      var deploy = function() { 
+        config = new AWS.Config(JSON.parse(configObject));
+        s3 = new AWS.S3(config);
 
         var compileDocument = function() {
           var compiledDocument = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
