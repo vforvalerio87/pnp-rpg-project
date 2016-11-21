@@ -34,7 +34,7 @@ A seconda dell'ambientazione, ogni abilità può richiedere delle specializzazio
 
 >Ogni campagna prevede un livello di potere: il livello di potere determina quante abilità a livello 3, quante a livello 2 e quante a livello 1 ogni personaggio debba avere al momento della creazione.
 
-###Esempi di abilità
+###Esempi di abilità \**altamente work in progress*\*
 
 ####Sotterfugio
 Esempio: borseggiare, scassinare, hackerare sistemi di sicurezza o falsificare documenti.
